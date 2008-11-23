@@ -1,0 +1,1 @@
+<?php/*TODO:Wrapper for $_REQUEST($_GET aswell as $_POST), where $_POST has the highest priority*/Class HttpRequest{	public function get($key)	{		if(isset($_POST[$key]))			return $_POST[$key];					if(isset($_GET[$key]))			return $_GET[$key];		return null;	}}?>
