@@ -18,6 +18,9 @@ Abstract Class DB Extends PDO
 			case 'mysql':
 				return new Mysql;
 				
+			case 'sqllite':
+				return new Sqllite;
+				
 			default:
 				throw new Exception('This database is not yet supported by pBlog');
 		}
@@ -34,6 +37,19 @@ Class Mysql Extends DB
 	public function getDns()
 	{
 		return 'mysql:host=' . DB_HOST . ';dbname=' . DB_DATABASE;
+	}
+}
+
+Class Sqllite Extends DB
+{
+	public function __construct()
+	{
+		parent::__construct($this->getDns());
+	}
+	
+	public function getDns()
+	{
+		return 'sqlite:' . DB_SQLLITE_FILE;
 	}
 }
 ?>

@@ -21,7 +21,7 @@ Abstract Class Mapper
 		$sql = 'SELECT * FROM ' . $table;
 		
 		if($cond !== null)
-			$sql .= $this->getCond($cond);
+			$sql .= $this->getConds($cond);
 		
 		
 		$objs = $this->db->query($sql)->fetchAll(PDO::FETCH_CLASS, $type);
@@ -44,8 +44,6 @@ Abstract Class Mapper
 		$columns = array_keys($data);
 		
 		$sql = 'INSERT INTO ' . $table . ' (' . implode($columns, ', ') . ') VALUES (\'' . implode($data, '\',\'') . '\')';
-		
-		echo $sql;
 		
 		$query = $this->db->query($sql);
 	}

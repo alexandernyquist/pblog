@@ -7,7 +7,7 @@ Simple placeholder for unknown objects
 Class Struct
 {
 	private $data;
-	
+
 	public function __get($key)
 	{
 		return $this->data[$key];
