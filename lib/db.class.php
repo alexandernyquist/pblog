@@ -6,7 +6,7 @@ Abstract Class DB Extends PDO
 	public static function singleton()
 	{
 		if(self::$singleton == null)
-			self::$singleton = self::factory(DB_TYPE);
+			self::$singleton = self::factory(Config::singleton()->get('database', 'type'));
 			
 		return self::$singleton;
 	}
@@ -31,12 +31,14 @@ Class Mysql Extends DB
 {
 	public function __construct()
 	{
-		parent::__construct($this->getDns(), DB_USER, DB_PASS);
+		parent::__construct($this->getDns(),
+							Config::singleton()->get('database', 'user'),
+							Config::singleton()->get('database', 'password'));
 	}
 	
 	public function getDns()
 	{
-		return 'mysql:host=' . DB_HOST . ';dbname=' . DB_DATABASE;
+		return 'mysql:host=' . Config::singleton()->get('database', 'host') . ';dbname=' . Config::singleton()->get('database', 'database');
 	}
 }
 
