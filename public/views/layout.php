@@ -39,7 +39,7 @@
 	</head>
 	
 	<body>
-
+	<h1><span class="p">p</span>Blog</h1>
 	<div>
 		<?php echo $content; ?>
 	</div>
