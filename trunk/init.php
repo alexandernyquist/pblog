@@ -1,30 +1,16 @@
 <?php
-/* Simple settings */
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_DATABASE', 'pblog');
-
 /* Directories */
 define('DIR_ROOT', $_SERVER['DOCUMENT_ROOT'] . 'pblog/');
 define('DIR_LIB', DIR_ROOT . 'lib/');
 define('DIR_MOD', DIR_ROOT . 'modules/');
 
-define('SITE_LAYOUT', DIR_ROOT . 'public/views/layout.php');
+define('CONFIG_FILE', DIR_ROOT . 'config.ini');
 
 define('CONTROLLER_DIR', DIR_ROOT . 'public/controllers/');
 define('MODELS_DIR', DIR_ROOT . 'public/models/');
 
-define('DEFAULT_CONTROLLER', 'home');
-define('DEFAULT_ACTION', 'index');
+define('SITE_LAYOUT', DIR_ROOT . Config::singleton()->get('config', 'layout'));
 
-/* The database types we support */
-define('DB_TYPE_MYSQL', 'mysql');
-define('DB_TYPE_SQLLITE', 'sqllite');
-
-/* Define the db type we want to use */
-define('DB_TYPE', DB_TYPE_MYSQL);
-define('DB_SQLLITE_FILE', null);
 
 $request = new HttpRequest;
 $fp = new FrontController;
