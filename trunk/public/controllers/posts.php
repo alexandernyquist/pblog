@@ -6,7 +6,8 @@ Class Posts Extends Controller
 	{
 		$pm = new PostMapper;
 		
-		$this->posts = $pm->all();
+		$posts = $pm->all();
+		$this->title = 'tjena';
 		$this->render('public/views/posts.php');
 	}
 	
