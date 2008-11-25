@@ -33,6 +33,8 @@ Class Template
 	public function render(View $view)
 	{
 		$template = new View($this->layout);
+		var_dump($view);
+		$template->title = isset($view->title) ? $view->title : 'Alexander Nyquist';
 		$template->content = $view->render();
 		
 		echo $template->render();

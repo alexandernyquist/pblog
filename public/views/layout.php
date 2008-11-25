@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
-		<title>Alexander Nyquist: Blog</title>
+		<title><?php echo $title; ?> | pBlog</title>
 		<style type="text/css">
 			h2 {
 				margin: 0;
